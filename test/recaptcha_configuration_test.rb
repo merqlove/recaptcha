@@ -24,6 +24,10 @@ class RecaptchaConfigurationTest < Minitest::Test
     assert_equal(Recaptcha.configuration.api_version, Recaptcha::RECAPTCHA_API_VERSION)
   end
 
+  def test_recaptcha_size_default
+    assert_equal(Recaptcha.configuration.size, Recaptcha::RECAPTCHA_SIZE_DEFAULT)
+  end
+
   def test_v2_with_v2_api?
     assert Recaptcha.configuration.v2?
   end

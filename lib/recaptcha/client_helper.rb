@@ -12,8 +12,9 @@ module Recaptcha
       error = options[:error] ||= ((defined? flash) ? flash[:recaptcha_error] : "")
       uri   = Recaptcha.configuration.api_server_url(options[:ssl])
       uri += "?hl=#{options[:hl]}" unless options[:hl].blank?
+      options[:size] ||= Recaptcha.configuration.size
 
-      v2_options = options.slice(:theme, :type, :callback, :size).map {|k,v| %{data-#{k}="#{v}"} }.join(" ")
+      v2_options = options.slice(:theme, :type, :callback, :expired_callback, :size).map {|k,v| %{data-#{k}="#{v}"} }.join(" ")
 
       html = ""
       html << %{<script src="#{uri}" async defer></script>\n}
