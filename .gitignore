@@ -3,6 +3,6 @@ pkg
 .ruby-gemset
 .ruby-version
 .bundle
-
+.idea
 .gems
 .rbenv-gemsets
