@@ -26,7 +26,6 @@ class RecaptchaConfigurationTest < Minitest::Test
 
   def test_v2_with_v2_api?
     assert Recaptcha.configuration.v2?
-    refute Recaptcha.configuration.v1?
   end
 
   def test_different_configuration_within_with_configuration_block

@@ -19,12 +19,6 @@ class RecaptchaVerifyTest < Minitest::Test
     @expected_post_data["remoteip"]   = @controller.request.remote_ip
     @expected_post_data["response"]   = "response"
 
-    if Recaptcha.configuration.v1?
-      @controller.params = {:recaptcha_challenge_field => "challenge", :recaptcha_response_field => "response"}
-      @expected_post_data["privatekey"] = Recaptcha.configuration.private_key
-      @expected_post_data["challenge"]  = "challenge"
-    end
-
     if Recaptcha.configuration.v2?
       @controller.params = {:recaptcha_response_field => "response"}
       @expected_post_data["secret"] = Recaptcha.configuration.private_key

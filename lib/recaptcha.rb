@@ -5,12 +5,6 @@ require 'recaptcha/verify'
 module Recaptcha
   CONFIG =
     {
-      'v1' => {
-        'server_url' => '//www.google.com/recaptcha/api',
-        'secure_server_url' => 'https://www.google.com/recaptcha/api',
-        'verify_url' => 'http://www.google.com/recaptcha/api/verify'
-      },
-
       'v2' => {
         'server_url' => '//www.google.com/recaptcha/api.js',
         'secure_server_url' => 'https://www.google.com/recaptcha/api.js',
@@ -18,7 +12,7 @@ module Recaptcha
       }
     }
 
-  RECAPTCHA_API_VERSION           = 'v2' 
+  RECAPTCHA_API_VERSION           = 'v2'
   USE_SSL_BY_DEFAULT              = false
   HANDLE_TIMEOUTS_GRACEFULLY      = true
   SKIP_VERIFY_ENV = ['test', 'cucumber']

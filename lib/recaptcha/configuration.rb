@@ -28,7 +28,7 @@ module Recaptcha
   #   end
   #
   class Configuration
-    attr_accessor :api_version, 
+    attr_accessor :api_version,
                   :skip_verify_env,
                   :private_key,
                   :public_key,
@@ -61,10 +61,6 @@ module Recaptcha
 
     def verify_url
       CONFIG[@api_version]['verify_url']
-    end
-
-    def v1?
-      @api_version == 'v1'
     end
 
     def v2?

@@ -24,18 +24,6 @@ module Recaptcha
 
         # env['REMOTE_ADDR'] to retrieve IP for Grape API
         remote_ip = (request.respond_to?(:remote_ip) && request.remote_ip) || (env && env['REMOTE_ADDR'])
-        if Recaptcha.configuration.v1?
-          verify_hash = {
-            "privatekey" => private_key,
-            "remoteip"   => remote_ip,
-            "challenge"  => params[:recaptcha_challenge_field],
-            "response"   => params[:recaptcha_response_field]
-          }
-          Timeout::timeout(options[:timeout] || 3) do
-            recaptcha = http.post_form(URI.parse(Recaptcha.configuration.verify_url), verify_hash)
-          end
-          answer, error = recaptcha.body.split.map { |s| s.chomp }
-        end
 
         if Recaptcha.configuration.v2?
           verify_hash = {
