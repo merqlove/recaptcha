@@ -33,6 +33,7 @@ module Recaptcha
                   :private_key,
                   :public_key,
                   :proxy,
+                  :hl,
                   :size,
                   :handle_timeouts_gracefully,
                   :use_ssl_by_default
